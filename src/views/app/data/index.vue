@@ -2,14 +2,14 @@
   <div id="app-data">
     <v-toolbar flat>
       <v-toolbar-items>
-        <v-btn flat>
+        <v-btn flat to="/app/data/raw">
           Mentah
         </v-btn>
         <v-btn flat>
           Diolah
         </v-btn>
         <v-spacer/>
-        <v-btn @click="$router.push('/app/data/add')" flat>Tambah</v-btn>
+        <v-btn flat to="/app/data/add">Tambah</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <router-view/>

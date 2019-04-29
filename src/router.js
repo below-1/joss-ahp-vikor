@@ -25,6 +25,11 @@ export default new Router({
               path: 'add',
               name: 'app-data-add',
               component: () => import('./views/app/data/add/index.vue')
+            },
+            {
+              path: 'raw',
+              name: 'app-data-raw',
+              component: () => import('./views/app/data/raw.vue')
             }
           ]
         }
