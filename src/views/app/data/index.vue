@@ -13,16 +13,22 @@
       </v-toolbar-items>
     </v-toolbar>
     <router-view/>
+    <lokasi-edit></lokasi-edit>
   </div>
 </template>
 
 <script>
+import LokasiEdit from './edit'
+
 export default {
   name: 'AppData',
+  components: {
+    LokasiEdit
+  },
   data () {
     return {
-      addDialog: false,
-      addDialogMaxWidth: 500
+      editDialogMaxWidth: 500,
+      editDialog: false
     }
   }
 }

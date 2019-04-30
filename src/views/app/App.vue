@@ -40,7 +40,7 @@ export default {
         {
           name: 'Data',
           icon: 'dashboard',
-          to: '/app/data',
+          to: '/app/data/raw',
           color: 'red accent-2'
         },
         {

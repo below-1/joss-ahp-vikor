@@ -269,10 +269,11 @@ export default {
       this.el = parseInt(this.el) - 1
     },
     save () {
-      let item = { ...this.item }
-      let toSave = create(item)
+      let item = { ...this.item, name: this.item.nama }
+      let toSave = { ...create(item) }
+      console.log(toSave)
       this.$db.put(toSave)
-      this.$router.push('/app/data')
+      this.$router.push('/app/data/raw')
     }
   }
 }
