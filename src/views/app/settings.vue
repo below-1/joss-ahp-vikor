@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 100%;">
     <v-toolbar flat>
       <v-toolbar-title>
         Pengaturan

@@ -36,6 +36,16 @@ export default {
     if (!rawRatioMatrix) {
       return DEF_RATIO_MATRIX
     }
-    JSON.parse(rawRatioMatrix)
+    const result = JSON.parse(rawRatioMatrix)
+    const parsed = result.map(row => {
+      return row.map(el => {
+        if ((typeof el) === 'string') {
+          return parseFloat(el)
+        } else {
+          return el
+        }
+      })
+    })
+    return parsed
   }
 }

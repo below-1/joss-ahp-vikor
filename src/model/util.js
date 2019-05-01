@@ -66,7 +66,7 @@ export const KLUOptions = [
   },
   {
     value: 3,
-    text: '3'
+    text: '2'
   },
   {
     value: 4,

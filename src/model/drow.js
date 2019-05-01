@@ -84,7 +84,7 @@ export function format (drow) {
       _klu = '1'
       break
     case 3:
-      _klu = '3'
+      _klu = '2'
       break
     case 4:
       _klu = '>2'

@@ -37,6 +37,11 @@ export default new Router({
           path: 'settings',
           name: 'settings',
           component: () => import('./views/app/settings.vue')
+        },
+        {
+          path: 'rank',
+          name: 'rank',
+          component: () => import('./views/app/rank.vue')
         }
       ]
     },
