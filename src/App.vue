@@ -11,7 +11,7 @@
       <v-spacer></v-spacer>
       <v-btn
         flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://web.facebook.com/9999x03"
         target="_blank"
       >
         <font-awesome-icon class="pink--text text--accent-2" size="2x" icon="heart"></font-awesome-icon>
