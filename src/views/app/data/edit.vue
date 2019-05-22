@@ -1,26 +1,30 @@
 <template>
-  <v-dialog v-model="dialog" :max-width="dialogWidth">
-    <v-card flat>
-      <v-card-title>Edit Data</v-card-title>
-      <v-card-text>
-        <v-text-field v-model="item.name" label="Nama Jalan"/>
-        <v-select label="Pusat Keramaian" :items="PKOptions" v-model="item.PK">
-        </v-select>
-        <v-select label="Akses Jalan" :items="AJOptions" v-model="item.AJ">
-        </v-select>
-        <v-select label="Kebersihan Lingkungan Usaha" :items="KLUOptions" v-model="item.KLU">
-        </v-select>
-        <v-select label="Zona Parkir" :items="ZPOptions" v-model="item.ZP">
-        </v-select>
-        <v-select label="Usaha Pendukung" :items="UPOptions" v-model="item.UP">
-        </v-select>
-      </v-card-text>
-      <v-card-actions>
-        <v-btn flat color="amber darken-4" @click="save">Save</v-btn>
-        <v-btn flat @click="dialog = false">Cancel</v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+  <div>
+    <v-dialog v-model="dialog" :max-width="dialogWidth">
+      <v-card flat>
+        <v-card-title>Edit Data</v-card-title>
+        <v-card-text>
+          <v-text-field v-model="item.name" label="Nama Jalan"/>
+          <v-select label="Pusat Keramaian" :items="PKOptions" v-model="item.PK">
+          </v-select>
+          <v-select :items="JPOptions" v-model="item.JP" label="Jumlah Pesaing">
+          </v-select>
+          <v-select label="Akses Jalan" :items="AJOptions" v-model="item.AJ">
+          </v-select>
+          <v-select label="Kebersihan Lingkungan Usaha" :items="KLUOptions" v-model="item.KLU">
+          </v-select>
+          <v-select label="Zona Parkir" :items="ZPOptions" v-model="item.ZP">
+          </v-select>
+          <v-select label="Usaha Pendukung" :items="UPOptions" v-model="item.UP">
+          </v-select>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn flat color="amber darken-4" @click="save">Save</v-btn>
+          <v-btn flat @click="dialog = false">Cancel</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
 
 <script>
@@ -79,6 +83,7 @@ export default {
       }
       await this.$db.put(payload)
       this.dialog = false
+      alert('Sukses mengubah data')
       bus.$emit('lokasi-edit-done')
     }
   },

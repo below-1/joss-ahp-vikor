@@ -1,11 +1,5 @@
 <template>
   <div>
-    <v-snackbar
-      top
-      v-model="delSnack"
-    >
-      Sukses Menghapus Data Data
-    </v-snackbar>
     <v-data-table
       :headers="headers"
       :items="items"
@@ -15,12 +9,12 @@
       <template v-slot:items="props">
         <tr>
           <td>{{props.item.doc.name}}</td>
-          <td>{{props.item.format._pk}}</td>
-          <td>{{props.item.format._jp}}</td>
-          <td>{{props.item.format._aj}}</td>
-          <td>{{props.item.format._klu}}</td>
-          <td>{{props.item.format._zp}}</td>
-          <td>{{props.item.format._up}}</td>
+          <td>{{props.item.doc.PK}}</td>
+          <td>{{props.item.doc.JP}}</td>
+          <td>{{props.item.doc.AJ}}</td>
+          <td>{{props.item.doc.KLU}}</td>
+          <td>{{props.item.doc.ZP}}</td>
+          <td>{{props.item.doc.UP}}</td>
           <td>
             <v-menu offset-y>
               <template v-slot:activator="{ on }">
@@ -58,7 +52,7 @@ import { format as _format } from '@/model/drow'
 import { bus } from '@/event-bus'
 
 export default {
-  name: 'RawData',
+  name: 'ProcessedData',
   data () {
     return {
       headers: [
@@ -95,8 +89,7 @@ export default {
           text: ''
         }
       ],
-      items: [],
-      delSnack: false
+      items: []
     }
   },
   methods: {
@@ -119,7 +112,6 @@ export default {
       } catch (err) {
         console.log(err)
       }
-      this.delSnack = true
       this.loadData()
     },
     onEdit (id) {

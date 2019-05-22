@@ -5,7 +5,7 @@
         <v-flex md10 class="text-md-center text-sm-center">
           <font-awesome-icon class="white--text" size="10x" :icon="['fab', 'strava']"></font-awesome-icon>
           <div class="display-2 white--text py-4">
-            JOSS--SALOME
+            {{ parallaxTitle }}
           </div>
         </v-flex>
       </v-layout>
@@ -14,12 +14,11 @@
       <v-layout row wrap align-center>
         <v-flex md9>
           <div class="display-1">
-            Sistem Pendukung Keputusasaan Penentuan Kelayakan Lokasi Usaha Franchise
-            Menggunakan Metode AHP dan VIKOR
+            {{ mainDescription }}
           </div>
 
           <div class="headline my-4">
-            STUDI KASUS SALOME JOSS - KUPANG
+            {{ secondaryDescription }}
           </div>
 
           <v-btn @click="$router.push('/app')" dark color="amber darken-2" depressed large>Mulai</v-btn>
@@ -30,12 +29,21 @@
 </template>
 
 <script>
+import setting from '@/model/setting'
+
 export default {
   name: 'Home',
   data () {
     return {
-      //
+      mainDescription: '',
+      secondaryDescription: '',
+      parallaxTitle: ''
     }
+  },
+  mounted () {
+    this.mainDescription = setting.mainDescription()
+    this.secondaryDescription = setting.secondaryDescription()
+    this.parallaxTitle = setting.parallaxTitle()
   }
 }
 </script>

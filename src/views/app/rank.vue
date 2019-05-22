@@ -44,7 +44,7 @@
           <div class="pa-4 title">Nilai Preferensi: {{pref}}</div>
           <v-data-table :headers="headersSorted" :items="result" hide-actions :total-items="result.length">
             <template v-slot:items="props">
-              <tr>
+              <tr v-bind:class="{ red: props.item.Q > pref }">
                 <td>{{indexResult[props.index]}}</td>
                 <td>{{props.item.C1.toFixed(4)}}</td>
                 <td>{{props.item.C2.toFixed(4)}}</td>
@@ -151,5 +151,8 @@ export default {
 </script>
 
 <style>
-
+tr.red {
+  background-color: red;
+  color: white;
+}
 </style>

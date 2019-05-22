@@ -1,12 +1,12 @@
 <template>
   <v-app>
     <v-toolbar app dark flat style="padding-left: 0 !important;">
-      <v-toolbar-side-icon>
+      <v-toolbar-side-icon to="/">
         <font-awesome-icon class="amber--text text--darken-4" size="2x" :icon="['fab', 'strava']"></font-awesome-icon>
       </v-toolbar-side-icon>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Franchise Rangking</span>
-        <span class="font-weight-light">--SALOME</span>
+        <span>{{mainTitle}}</span>
+        <span class="font-weight-light">--{{subtitle}}</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
@@ -25,8 +25,20 @@
 </template>
 
 <script>
+import setting from '@/model/setting'
+
 export default {
-  name: 'AppWrapper'
+  name: 'AppWrapper',
+  data () {
+    return {
+      mainTitle: '',
+      subtitle: ''
+    }
+  },
+  mounted () {
+    this.mainTitle = setting.mainTitle()
+    this.subtitle = setting.subtitle()
+  }
 }
 </script>
 

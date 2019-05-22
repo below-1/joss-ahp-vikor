@@ -20,15 +20,15 @@ export const PKOptions = [
 export const JPOptions = [
   {
     value: 1,
-    text: '>= 3'
+    text: '>= 3 Pesaing'
   },
   {
     value: 2,
-    text: '2'
+    text: '2 Pesaing'
   },
   {
     value: 3,
-    text: '1'
+    text: '1 Pesaing'
   },
   {
     value: 4,
@@ -62,15 +62,15 @@ export const KLUOptions = [
   },
   {
     value: 2,
-    text: '1'
+    text: '1 Tempat Sampah'
   },
   {
     value: 3,
-    text: '2'
+    text: '2 Tempat Sampah'
   },
   {
     value: 4,
-    text: '> 2'
+    text: '> 2 Tempat Sampah'
   }
 ]
 
@@ -100,14 +100,14 @@ export const UPOptions = [
   },
   {
     value: 2,
-    text: '1-2'
+    text: '1-2 Usaha Pendukung'
   },
   {
     value: 3,
-    text: '3-4'
+    text: '3-4 Usaha Pendukung'
   },
   {
     value: 4,
-    text: '>= 5'
+    text: '>= 5 Usaha Pendukung'
   }
 ]

@@ -1,5 +1,8 @@
 <template>
   <div id="main-app">
+    <v-snackbar v-model="loginSuccessSnack" top>
+      Sukses Login
+    </v-snackbar>
     <v-navigation-drawer
       app
       fixed
@@ -25,6 +28,16 @@
             </v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile @click="doLogout">
+          <v-list-tile-action>
+            <v-icon color="red">power_settings_new</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              Logout
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <router-view></router-view>
@@ -32,6 +45,8 @@
 </template>
 
 <script>
+import settings from '@/model/setting'
+
 export default {
   name: 'MainApp',
   data () {
@@ -61,7 +76,30 @@ export default {
           to: '/app/testing',
           color: 'cyan darken-2'
         }
-      ]
+      ],
+      loginSuccessSnack: false
+    }
+  },
+  mounted () {
+    const username = localStorage.getItem('ninda.vikor.username')
+    const password = localStorage.getItem('ninda.vikor.password')
+    if (username !== settings.username()) {
+      alert('Username salah')
+      this.$router.push('/login')
+      return
+    }
+    if (password !== settings.password()) {
+      alert('Password salah')
+      this.$router.push('/login')
+      return
+    }
+    this.loginSuccessSnack = true
+  },
+  methods: {
+    doLogout () {
+      localStorage.removeItem('ninda.vikor.username')
+      localStorage.removeItem('ninda.vikor.password')
+      this.$router.push('/login')
     }
   }
 }

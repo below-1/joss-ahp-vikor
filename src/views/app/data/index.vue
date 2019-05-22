@@ -5,7 +5,7 @@
         <v-btn flat to="/app/data/raw">
           Mentah
         </v-btn>
-        <v-btn flat>
+        <v-btn flat to="/app/data/processed">
           Diolah
         </v-btn>
         <v-spacer/>

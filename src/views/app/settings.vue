@@ -15,8 +15,13 @@
               Basic Settings
             </v-card-title>
             <v-card-text>
-              <v-text-field label="IR" v-model="IR" type="number" :min="0" :step="0.01"/>
-              <v-text-field label="v" v-model="v" type="number" :min="0" :step="0.01"/>
+              <v-textarea label="Deskripsi Utama" v-model="mainDescription"/>
+              <v-text-field label="Deskripsi Singkat" v-model="secondaryDescription"/>
+              <v-text-field label="Title 1" v-model="mainTitle"/>
+              <v-text-field label="Subtitle" v-model="subtitle"/>
+              <v-text-field label="Title Parallax" v-model="parallaxTitle"/>
+              <v-text-field label="IR" v-model.number="IR" type="number" :min="0" :step="0.01"/>
+              <v-text-field label="v" v-model.number="v" type="number" :min="0" :step="0.01"/>
             </v-card-text>
           </v-card>
 
@@ -82,6 +87,8 @@
 </template>
 
 <script>
+import settings from '@/model/setting'
+
 const PREFIX = 'frninda.settings'
 const DEF_RATIO_MATRIX = [
   [1.00, 2.00, 3.00, 5.00, 7.00, 7.00],
@@ -140,11 +147,21 @@ export default {
         }
       ],
       selectedRatioIdx: 0,
-      ratioMatrix: DEF_RATIO_MATRIX
+      ratioMatrix: DEF_RATIO_MATRIX,
+      mainDescription: '',
+      secondaryDescription: '',
+      mainTitle: '',
+      subtitle: '',
+      parallaxTitle: ''
     }
   },
   methods: {
     loadDataFromLocalStorage () {
+      this.mainDescription = settings.mainDescription()
+      this.secondaryDescription = settings.secondaryDescription()
+      this.mainTitle = settings.mainTitle()
+      this.subtitle = settings.subtitle()
+      this.parallaxTitle = settings.parallaxTitle()
       // Get from localStorage
       let rawIR = localStorage.getItem(`${PREFIX}.IR`)
       if (!rawIR) {
@@ -188,6 +205,11 @@ export default {
       localStorage.setItem(`${PREFIX}.v`, this.v)
       localStorage.setItem(`${PREFIX}.benefitCols`, JSON.stringify(this.benefitCols))
       localStorage.setItem(`${PREFIX}.ratioMatrix`, JSON.stringify(this.ratioMatrix))
+      settings.setMainDescription(this.mainDescription)
+      settings.setSecondaryDescription(this.secondaryDescription)
+      settings.setMainTitle(this.mainTitle)
+      settings.setSubtitle(this.subtitle)
+      settings.setParallaxTitle(this.parallaxTitle)
     }
   },
   mounted () {

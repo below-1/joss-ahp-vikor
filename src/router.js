@@ -30,6 +30,11 @@ export default new Router({
               path: 'raw',
               name: 'app-data-raw',
               component: () => import('./views/app/data/raw.vue')
+            },
+            {
+              path: 'processed',
+              name: 'app-data-process',
+              component: () => import('./views/app/data/processed.vue')
             }
           ]
         },
@@ -42,8 +47,18 @@ export default new Router({
           path: 'rank',
           name: 'rank',
           component: () => import('./views/app/rank.vue')
+        },
+        {
+          path: 'testing',
+          name: 'testing',
+          component: () => import('./views/app/testing.vue')
         }
       ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login.vue')
     },
     {
       path: '/about',
