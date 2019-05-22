@@ -17,6 +17,7 @@
     "core-js": "^2.6.5",
     "pouchdb": "^7.0.0",
     "vue": "^2.6.10",
+    "vue-particles": "^1.0.9",
     "vue-router": "^3.0.3",
     "vuetify": "^1.5.5",
     "vuex": "^3.0.1"

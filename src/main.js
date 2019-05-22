@@ -9,7 +9,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUserSecret, faTable, faCog, faCube, faTrash, faRandom, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faGoogle, faTwitter, faStrava } from '@fortawesome/free-brands-svg-icons'
 
+const VueParticles = require('vue-particles')
+
 Vue.config.productionTip = false
+Vue.use(VueParticles.default)
 Vue.use(Db)
 library.add(faUserSecret, faTable, faCog, faCube, faFacebook, faGoogle, faTwitter, faTrash, faRandom, faHeart, faStrava)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
