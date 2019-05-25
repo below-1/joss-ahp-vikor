@@ -46,7 +46,12 @@ export default new Router({
         {
           path: 'rank',
           name: 'rank',
-          component: () => import('./views/app/rank.vue')
+          component: () => import('./views/app/rank2.vue')
+        },
+        {
+          path: 'rank2',
+          name: 'rank2',
+          component: () => import('./views/app/rank2.vue')
         },
         {
           path: 'testing',
